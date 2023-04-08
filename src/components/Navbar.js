@@ -1,5 +1,4 @@
 const Navbar = () => {
-
   const links = [
     { name: 'Books', path: '/' },
     { name: 'Categories', path: 'categories' },
