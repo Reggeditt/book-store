@@ -68,7 +68,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Allows users to perform arithmetic functions]**
+- **[Shows a list of books]**
 <!-- - **[key_feature_2]** -->
 <!-- - **[key_feature_3]** -->
 
