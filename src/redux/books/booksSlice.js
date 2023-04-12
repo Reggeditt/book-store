@@ -1,20 +1,25 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuid } from 'uuid';
 
 const books = [
   {
-    id: 1,
+    id: uuid(),
     title: 'The Hunger Games',
     author: 'Suzanne Collins',
+    category: 'Action',
   },
   {
-    id: 2,
+    id: uuid(),
     title: 'Dune',
     author: 'Frank Herbert',
+    category: 'Sci-Fi',
   },
   {
-    id: 3,
+    id: uuid(),
     title: 'Capital in the Twenty-First Century',
     author: 'Suzanne Collins',
+    category: 'Economy',
   },
 ];
 
@@ -26,6 +31,11 @@ const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
+    clearBooks: (state) => {
+      const newState = state;
+      newState.books = [];
+      return newState;
+    },
     addBook: (state, action) => {
       state.books.push(action.payload);
     },
@@ -38,6 +48,6 @@ const booksSlice = createSlice({
   },
 });
 
-export const { addBook, removeBook } = booksSlice.actions;
+export const { clearBooks, addBook, removeBook } = booksSlice.actions;
 
 export default booksSlice.reducer;
