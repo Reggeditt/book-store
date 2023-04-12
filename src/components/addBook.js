@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { v4 as uuid } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
 
@@ -7,10 +9,10 @@ const AddBook = () => {
   const getNewBook = (e) => {
     e.preventDefault();
     const newBook = {
-      id: Math.floor(Math.random() * 100),
+      id: uuid(),
       title: e.target[0].value,
       category: e.target[1].value,
-      author: 'Unknown',
+      author: e.target[2].value,
     };
     dispatch(addBook(newBook));
   };
@@ -29,7 +31,8 @@ const AddBook = () => {
         <option value="Fiction">Fiction</option>
         <option value="Romance">Romance</option>
       </select>
-      <input type="submit" value="Add Book" />
+      <input type="name" placeholder="Author" />
+      <button type="submit">Add Book</button>
     </form>
   );
 };
