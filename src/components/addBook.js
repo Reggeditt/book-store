@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { v4 as uuid } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
