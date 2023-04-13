@@ -7,7 +7,6 @@ const Books = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      <h1>All Books</h1>
       <BooksList />
       <AddBook />
       <button

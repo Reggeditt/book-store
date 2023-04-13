@@ -10,6 +10,30 @@ const books = [
   },
   {
     id: uuid(),
+    category: 'action',
+    title: 'Dune',
+    author: 'Frank Herbert',
+  },
+  {
+    id: uuid(),
+    title: 'super hero',
+    author: 'Suzanne Collins',
+    category: 'Action',
+  },
+  {
+    id: uuid(),
+    title: 'love',
+    author: 'Suzanne Collins',
+    category: 'Romance',
+  },
+  {
+    id: uuid(),
+    title: 'the holy bible',
+    author: 'unknown',
+    category: 'Religion',
+  },
+  {
+    id: uuid(),
     title: 'Dune',
     author: 'Frank Herbert',
     category: 'Sci-Fi',
@@ -44,9 +68,20 @@ const booksSlice = createSlice({
       currentState.books = state.books.filter((book) => book.id !== bookId);
       return currentState;
     },
+    filterBooks: (state, action) => {
+      const category = action.payload;
+      const currentState = state;
+      currentState.books = state.books.find((book) => book.category === category);
+      return currentState;
+    },
   },
 });
 
-export const { clearBooks, addBook, removeBook } = booksSlice.actions;
+export const {
+  clearBooks,
+  addBook,
+  removeBook,
+  filterBooks,
+} = booksSlice.actions;
 
 export default booksSlice.reducer;
