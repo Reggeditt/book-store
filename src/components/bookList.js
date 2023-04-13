@@ -2,12 +2,41 @@ import { useSelector } from 'react-redux';
 import BookItem from './bookItem';
 
 const BooksList = () => {
-  const booksArray = useSelector((state) => state.books);
+  let booksArray = useSelector((store) => store.books).books;
+  const categoriesList = useSelector((store) => store.categories).categories;
 
+  const performFilter = (e) => {
+    e.preventDefault();
+    const selectedCategory = e.target[0].value;
+    if (categoriesList.includes(selectedCategory)) {
+      if (booksArray.find((book) => book.category === selectedCategory)) {
+        booksArray = booksArray.find((book) => book.category === selectedCategory);
+        console.log(booksArray);
+          <BooksList />;
+      } else {
+        console.log('No books found in this category');
+        booksArray = [];
+      }
+    } else console.log('Category not found');
+  };
   return (
     <div>
+      <h1>All Books</h1>
+      <form
+        onSubmit={(e) => performFilter(e)}
+        className="filter-form"
+      >
+        <select>
+          {
+            categoriesList.map((category) => (
+              <option key={category} value={category}>{category}</option>
+            ))
+          }
+        </select>
+        <button type="submit">filter by category</button>
+      </form>
       {
-        booksArray.books.map((book) => (
+        booksArray.map((book) => (
           <div key={book.id}>
             <BookItem book={JSON.stringify(book)} />
           </div>
