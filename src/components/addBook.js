@@ -14,11 +14,10 @@ const AddBook = () => {
     const newBook = {
       item_id: uuid(),
       title,
-      category,
+      category: category || categories[0],
       author,
     };
-    console.log(newBook);
-    // dispatch(addBook(newBook));
+    dispatch(addBook(newBook));
     dispatch(postBooks(newBook));
   };
 

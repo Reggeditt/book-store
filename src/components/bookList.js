@@ -1,22 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchBooks } from '../redux/books/booksSlice';
-// import BookItem from './bookItem';
+import BookItem from './bookItem';
 
 const BooksList = () => {
   const dispatch = useDispatch();
+  const booksObject = useSelector((store) => store.books).books;
 
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
 
-  const booksArray = useSelector((store) => store.books).books;
-  console.log(booksArray);
+  const bookData = (Object.entries(booksObject));
   return (
     <div>
       <h1>All Books</h1>
-      {JSON.stringify(booksArray)}
-      {/* <BookItem book={JSON.stringify(booksArray[0])} /> */}
+      {
+        bookData.map(
+          (book) => <BookItem key={book[0]} id={book[0]} book={JSON.stringify(book[1][0])} />,
+        )
+      }
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { removeBook, deleteBook } from '../redux/books/booksSlice';
 
-const BookItem = ({ book }) => {
+const BookItem = ({ book, id }) => {
   const dispatch = useDispatch();
 
   return (
@@ -12,8 +12,11 @@ const BookItem = ({ book }) => {
       <button
         type="button"
         className="book-item__remove"
-        id={JSON.parse(book).id}
-        onClick={(e) => dispatch(removeBook(e.target.id))}
+        id={id}
+        onClick={(e) => {
+          dispatch(removeBook(e.target.id));
+          dispatch(deleteBook(e.target.id));
+        }}
       >
         Remove
       </button>
@@ -23,6 +26,7 @@ const BookItem = ({ book }) => {
 
 BookItem.propTypes = {
   book: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default BookItem;
