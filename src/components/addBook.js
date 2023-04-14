@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, postBooks } from '../redux/books/booksSlice';
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -12,13 +12,14 @@ const AddBook = () => {
   const getNewBook = (e) => {
     e.preventDefault();
     const newBook = {
-      id: uuid(),
+      item_id: uuid(),
       title,
       category,
       author,
     };
     console.log(newBook);
-    dispatch(addBook(newBook));
+    // dispatch(addBook(newBook));
+    dispatch(postBooks(newBook));
   };
 
   return (

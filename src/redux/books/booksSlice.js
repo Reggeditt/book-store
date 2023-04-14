@@ -1,54 +1,33 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuid } from 'uuid';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const books = [
-  {
-    id: uuid(),
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-    category: 'Action',
-  },
-  {
-    id: uuid(),
-    category: 'action',
-    title: 'Dune',
-    author: 'Frank Herbert',
-  },
-  {
-    id: uuid(),
-    title: 'super hero',
-    author: 'Suzanne Collins',
-    category: 'Action',
-  },
-  {
-    id: uuid(),
-    title: 'love',
-    author: 'Suzanne Collins',
-    category: 'Romance',
-  },
-  {
-    id: uuid(),
-    title: 'the holy bible',
-    author: 'unknown',
-    category: 'Religion',
-  },
-  {
-    id: uuid(),
-    title: 'Dune',
-    author: 'Frank Herbert',
-    category: 'Sci-Fi',
-  },
-  {
-    id: uuid(),
-    title: 'Capital in the Twenty-First Century',
-    author: 'Suzanne Collins',
-    category: 'Economy',
-  },
-];
+const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0GHbRJM3Rw0sScdVnx5z';
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async (_, thunkAPI) => {
+  try {
+    const response = await axios.get(`${url}/books`);
+    let { books } = thunkAPI.getState().books;
+    books = response.data;
+    return books;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const createApp = createAsyncThunk('books/createApp', async () => {
+  const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/');
+  return response;
+});
 
 const initialState = {
-  books,
+  books: [],
+  appID: '0GHbRJM3Rw0sScdVnx5z',
+  url: 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0GHbRJM3Rw0sScdVnx5z/',
 };
+
+export const postBooks = createAsyncThunk('books/postBooks', async (newBook) => {
+  axios.post(`${url}/books`, newBook)
+    .then((res) => console.log(res));
+});
 
 const booksSlice = createSlice({
   name: 'books',
@@ -73,6 +52,23 @@ const booksSlice = createSlice({
       const currentState = state;
       currentState.books = state.books.find((book) => book.category === category);
       return currentState;
+    },
+  },
+  extraReducers: {
+    [fetchBooks.pending]: (state) => {
+      const newState = state;
+      newState.books = [];
+      return newState;
+    },
+    [fetchBooks.fulfilled]: (state, action) => {
+      const newState = state;
+      newState.books = action.payload;
+      return newState;
+    },
+    [fetchBooks.rejected]: (state, action) => {
+      const newState = state;
+      newState.books = action.payload;
+      return newState;
     },
   },
 });
