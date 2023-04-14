@@ -13,8 +13,7 @@ const BooksList = () => {
 
   const bookData = (Object.entries(booksObject));
   return (
-    <div>
-      <h1>All Books</h1>
+    <div className="books-list-wrap">
       {
         bookData.map(
           (book) => <BookItem key={book[0]} id={book[0]} book={JSON.stringify(book[1][0])} />,
