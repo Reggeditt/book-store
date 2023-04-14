@@ -1,47 +1,22 @@
-import { useSelector } from 'react-redux';
-import BookItem from './bookItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchBooks } from '../redux/books/booksSlice';
+// import BookItem from './bookItem';
 
 const BooksList = () => {
-  let booksArray = useSelector((store) => store.books).books;
-  const categoriesList = useSelector((store) => store.categories).categories;
+  const dispatch = useDispatch();
 
-  const performFilter = (e) => {
-    e.preventDefault();
-    const selectedCategory = e.target[0].value;
-    if (categoriesList.includes(selectedCategory)) {
-      if (booksArray.find((book) => book.category === selectedCategory)) {
-        booksArray = booksArray.find((book) => book.category === selectedCategory);
-        console.log(booksArray);
-          <BooksList />;
-      } else {
-        console.log('No books found in this category');
-        booksArray = [];
-      }
-    } else console.log('Category not found');
-  };
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
+
+  const booksArray = useSelector((store) => store.books).books;
+  console.log(booksArray);
   return (
     <div>
       <h1>All Books</h1>
-      <form
-        onSubmit={(e) => performFilter(e)}
-        className="filter-form"
-      >
-        <select>
-          {
-            categoriesList.map((category) => (
-              <option key={category} value={category}>{category}</option>
-            ))
-          }
-        </select>
-        <button type="submit">filter by category</button>
-      </form>
-      {
-        booksArray.map((book) => (
-          <div key={book.id}>
-            <BookItem book={JSON.stringify(book)} />
-          </div>
-        ))
-      }
+      {JSON.stringify(booksArray)}
+      {/* <BookItem book={JSON.stringify(booksArray[0])} /> */}
     </div>
   );
 };
