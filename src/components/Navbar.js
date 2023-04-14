@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = () => {
   const links = [
@@ -6,14 +7,17 @@ const Navbar = () => {
     { name: 'Categories', path: 'categories' },
   ];
   return (
-    <nav className="navbar">
-      <h1>Bookstore CMS</h1>
-      <ul className="nav-links">
-        {links.map((link) => (
-          <li key={link.name}><NavLink to={link.path}>{link.name}</NavLink></li>
-        ))}
-      </ul>
-    </nav>
+    <>
+      <nav className="navbar">
+        <h1>Bookstore CMS</h1>
+        <ul className="nav-links">
+          {links.map((link) => (
+            <li key={link.name}><NavLink className="nav-link" to={link.path}>{link.name}</NavLink></li>
+          ))}
+        </ul>
+      </nav>
+      <div className="Line" />
+    </>
   );
 };
 

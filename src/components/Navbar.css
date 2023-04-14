@@ -1,0 +1,58 @@
+.navbar {
+  width: 87.5rem;
+  height: 5.938rem;
+  margin: 0;
+  /* padding: 1.438rem 6.188rem 1.688rem 6.25rem; */
+  background-color: var(--white-two);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5rem;
+}
+
+.navbar h1 {
+  width: 15rem;
+  height: 2.313rem;
+  margin: 0.375rem 2.938rem 0.125rem 0;
+  font-family: Montserrat;
+  font-size: 1.875rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--azure);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-link {
+  width: 3.688rem;
+  height: 1rem;
+  margin: 1.125rem 2.563rem 0.688rem 0;
+  font-family: Montserrat;
+  font-size: 0.813rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1.9px;
+  color: var(--black-two);
+  text-decoration: none;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.Line {
+  width: 100%;
+  height: 0.125rem;
+  margin: 0 0 2.313rem;
+  border: solid 1px var(--white);
+}
