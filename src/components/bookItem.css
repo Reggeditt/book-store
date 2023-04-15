@@ -32,14 +32,13 @@
   justify-content: space-between;
   width: 50rem;
   height: 6.25rem;
-  word-wrap: n;
 }
 
 .book-item__category {
   height: 1.125rem;
   margin: 0 2.438rem 0 0;
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-size: 0.875rem;
   font-weight: bold;
   font-stretch: normal;
@@ -51,7 +50,7 @@
 
 .book-item__title {
   height: 1.813rem;
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, sans-serif;
   font-size: 1.375rem;
   font-weight: bold;
   font-stretch: normal;
@@ -65,11 +64,11 @@
 .book-item__author {
   height: 1.188rem;
   margin: 0.25rem 0 1rem 0;
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, sans-serif;
   font-size: 0.875rem;
   font-weight: 300;
   font-stretch: normal;
-   font-style: normal;
+  font-style: normal;
   line-height: normal;
   letter-spacing: normal;
   color: var(--cool-blue);
@@ -87,7 +86,7 @@
   width: 4.563rem;
   height: 1.188rem;
   margin: 0.188rem 0.938rem 0.125rem 0;
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, sans-serif;
   font-size: 0.875rem;
   font-weight: 300;
   font-stretch: normal;
@@ -139,7 +138,7 @@
   width: 4.25rem;
   height: 2.438rem;
   margin: 0.063rem 5.75rem 0 0.688rem;
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-size: 2rem;
   font-weight: normal;
   font-stretch: normal;
@@ -154,7 +153,7 @@
   height: 1.125rem;
   margin: 0.438rem 4.938rem 0.75rem 0.75rem;
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-size: 0.875rem;
   font-weight: normal;
   font-stretch: normal;
@@ -174,7 +173,7 @@
   height: 1.125rem;
   margin: 0.063rem 3.625rem 0 3.688rem;
   opacity: 0.5;
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, sans-serif;
   font-size: 0.813rem;
   font-weight: 300;
   font-stretch: normal;
@@ -188,7 +187,7 @@
   width: 4.688rem;
   height: 1.313rem;
   margin: 0.438rem 6.813rem 0.25rem 3.688rem;
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, sans-serif;
   font-size: 1rem;
   font-weight: 300;
   font-stretch: normal;
