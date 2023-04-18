@@ -8,15 +8,15 @@ const Navbar = () => {
   ];
   return (
     <>
-      <nav className="navbar">
-        <h1>Bookstore CMS</h1>
+      <nav className="nav-bar">
+        <a className="nav-brand" href="/">Bookstore CMS</a>
         <ul className="nav-links">
           {links.map((link) => (
-            <li key={link.name}><NavLink className="nav-link" to={link.path}>{link.name}</NavLink></li>
+            <li key={link.name}><NavLink className="nav-link active-link" to={link.path}>{link.name}</NavLink></li>
           ))}
         </ul>
+        <button className="icon-button" type="button"><span className="material-icons primary-color">person</span></button>
       </nav>
-      <div className="Line" />
     </>
   );
 };

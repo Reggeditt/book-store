@@ -31,9 +31,7 @@ const BookItem = ({ book, id }) => {
         </div>
       </div>
       <div className="book-item__status">
-        <div className="Oval-2">
-          <div className="Oval-1" />
-        </div>
+        <div className="Oval-2" />
         <div className="status-data">
           <span className="status-data__title">64%</span>
           <span className="status-data__completed">Completed</span>
