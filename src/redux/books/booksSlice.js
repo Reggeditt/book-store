@@ -3,8 +3,6 @@ import axios from 'axios';
 
 const initialState = {
   books: [],
-  appID: '0GHbRJM3Rw0sScdVnx5z',
-  url: 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0GHbRJM3Rw0sScdVnx5z/',
 };
 
 const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0GHbRJM3Rw0sScdVnx5z';
