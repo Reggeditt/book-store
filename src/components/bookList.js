@@ -7,7 +7,6 @@ import './bookList.css';
 const BooksList = () => {
   const dispatch = useDispatch();
   const booksObject = useSelector((store) => store.books).books;
-
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
